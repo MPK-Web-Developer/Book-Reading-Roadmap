@@ -2,34 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Reading Roadmap – Beginner to Advanced</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
+    <title>Reading Roadmap – Personal Growth & Wealth Creation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       :root {
-        /* COLOR SYSTEM – BLUE + PURPLE */
-        --blue-main: #2563eb;
-        --blue-soft: #1d4ed8;
-        --purple-main: #8b5cf6;
-        --purple-soft: #7c3aed;
-        --bg-page: #020617; /* almost black navy */
-        --bg-card: #020617; /* deep background inside cards */
-        --bg-card-overlay: rgba(15, 23, 42, 0.9);
-        --text-main: #e5e7eb; /* light grey for main text */
-        --text-muted: #9ca3af; /* muted */
-        --text-strong: #f9fafb; /* near white */
-        --accent-gold: #fbbf24; /* highlight for tags */
-
-        --border-soft: rgba(148, 163, 184, 0.45);
-        --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.85);
-        --radius-lg: 1.6rem;
-        --transition-fast: 200ms ease;
+        --bg-gradient: radial-gradient(
+          circle at top,
+          #3b82f6 0,
+          #1e1b4b 45%,
+          #020617 100%
+        );
+        --card-bg: rgba(15, 23, 42, 0.7);
+        --card-border: rgba(148, 163, 184, 0.35);
+        --text-main: #e5e7eb;
+        --text-muted: #9ca3af;
+        --accent: #a855f7;
+        --accent-soft: rgba(129, 140, 248, 0.25);
+        --phase-beginner: #22c55e;
+        --phase-intermediate: #3b82f6;
+        --phase-advanced: #a855f7;
+        --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+        --radius-xl: 18px;
+        --transition-fast: 220ms ease;
       }
 
       * {
@@ -39,954 +33,1590 @@
       }
 
       body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--bg-page);
-        background-image: radial-gradient(
-            circle at top left,
-            rgba(37, 99, 235, 0.22),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at top right,
-            rgba(139, 92, 246, 0.22),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at bottom,
-            rgba(15, 23, 42, 1),
-            transparent 70%
-          );
-        background-attachment: fixed;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg-gradient);
         color: var(--text-main);
-        line-height: 1.7;
         min-height: 100vh;
+        line-height: 1.7;
         -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
+        font-size: 16px;
       }
 
-      a {
-        text-decoration: none;
-        color: inherit;
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+            circle at 10% 20%,
+            rgba(59, 130, 246, 0.15) 0,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 80% 10%,
+            rgba(168, 85, 247, 0.18) 0,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(34, 197, 94, 0.18) 0,
+            transparent 55%
+          );
+        z-index: -1;
       }
 
-      .page {
-        max-width: 1100px;
+      .page-shell {
+        max-width: 1160px;
         margin: 0 auto;
-        padding: 1.75rem 1.25rem 3.25rem;
+        padding: 1.5rem 1.25rem 3.5rem;
       }
 
-      /* HERO */
-
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-        gap: 2.25rem;
-        align-items: center;
-        margin-top: 1.25rem;
-        margin-bottom: 2.75rem;
+      /* HEADER – not sticky anymore */
+      header {
+        padding: 1.5rem 1.5rem 1.9rem;
+        margin-bottom: 2rem;
+        border-radius: 24px;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.9),
+          rgba(30, 64, 175, 0.9)
+        );
+        border: 1px solid rgba(129, 140, 248, 0.45);
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(20px);
       }
 
-      .hero-text {
-        animation: floatIn 800ms ease-out forwards;
-        opacity: 0;
-        transform: translateY(12px);
+      .header-top {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1.2rem;
+      }
+
+      @media (min-width: 768px) {
+        .header-top {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+      }
+
+      h1 {
+        font-size: clamp(1.9rem, 4vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 1.2;
       }
 
       .eyebrow {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
-        letter-spacing: 0.18em;
-        color: #c7d2fe;
-        padding: 0.4rem 0.9rem;
-        border-radius: 999px;
-        border: 1px solid rgba(129, 140, 248, 0.7);
-        display: inline-flex;
+        letter-spacing: 0.16em;
+        color: #a5b4fc;
+        display: flex;
         align-items: center;
-        gap: 0.45rem;
-        background: rgba(15, 23, 42, 0.98);
-        backdrop-filter: blur(12px);
+        gap: 0.4rem;
+        margin-bottom: 0.4rem;
       }
 
       .eyebrow-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #22c55e, #3b82f6);
+        box-shadow: 0 0 12px rgba(129, 140, 248, 0.9);
+      }
+
+      .header-subtitle {
+        font-size: 0.98rem;
+        color: var(--text-muted);
+        max-width: 620px;
+        margin-top: 0.25rem;
+      }
+
+      .phase-summary {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 0.35rem;
+      }
+
+      .phase-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        color: var(--text-muted);
+      }
+
+      .dot-beginner,
+      .dot-intermediate,
+      .dot-advanced {
         width: 8px;
         height: 8px;
         border-radius: 999px;
-        background: linear-gradient(
-          135deg,
-          var(--blue-main),
-          var(--purple-main)
-        );
+      }
+      .dot-beginner {
+        background: var(--phase-beginner);
+      }
+      .dot-intermediate {
+        background: var(--phase-intermediate);
+      }
+      .dot-advanced {
+        background: var(--phase-advanced);
       }
 
-      .hero-title {
-        font-size: clamp(2.2rem, 4vw, 3rem);
-        margin: 1.1rem 0 0.6rem;
-        font-weight: 700;
-        color: var(--text-strong);
-      }
-
-      .hero-title span {
-        background: linear-gradient(
-          to right,
-          var(--blue-main),
-          var(--purple-main)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-        color: var(--text-muted);
-        max-width: 34rem;
-      }
-
-      .hero-badges {
+      nav {
         display: flex;
         flex-wrap: wrap;
         gap: 0.6rem;
-        margin: 1.35rem 0 1.8rem;
+        margin-top: 0.7rem;
       }
 
-      .badge {
-        font-size: 0.82rem;
-        padding: 0.32rem 0.9rem;
+      .nav-button {
+        flex: 1 1 90px;
+        min-width: 0;
+        padding: 0.7rem 1rem;
         border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.6);
-        background: rgba(15, 23, 42, 0.98);
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        background: rgba(15, 23, 42, 0.85);
         color: #e5e7eb;
-      }
-
-      .badge strong {
-        color: var(--accent-gold);
-        font-weight: 600;
-      }
-
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-        align-items: center;
-      }
-
-      .btn-primary {
-        padding: 0.75rem 1.7rem;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        font-size: 0.95rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        background: linear-gradient(
-          135deg,
-          var(--blue-main),
-          var(--purple-main)
-        );
-        box-shadow: 0 22px 50px rgba(30, 64, 175, 0.7);
-        color: var(--text-strong);
-        transition: transform var(--transition-fast),
-          box-shadow var(--transition-fast), filter var(--transition-fast);
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-1px) scale(1.01);
-        filter: brightness(1.05);
-        box-shadow: 0 24px 60px rgba(88, 28, 135, 0.9);
-      }
-
-      .btn-ghost {
-        padding: 0.75rem 1.4rem;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.8);
-        background: rgba(15, 23, 42, 0.98);
-        color: var(--text-main);
         font-size: 0.9rem;
+        font-weight: 500;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         gap: 0.45rem;
         transition: background var(--transition-fast),
-          transform var(--transition-fast), border-color var(--transition-fast);
+          border-color var(--transition-fast), transform 160ms ease,
+          box-shadow var(--transition-fast), color var(--transition-fast);
       }
 
-      .btn-ghost span.icon {
-        font-size: 1.1rem;
+      .nav-button span {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        opacity: 0.85;
       }
 
-      .btn-ghost:hover {
+      .nav-button[data-phase="beginner"] {
+        border-color: rgba(34, 197, 94, 0.65);
+        box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.35);
+      }
+
+      .nav-button[data-phase="intermediate"] {
+        border-color: rgba(59, 130, 246, 0.65);
+        box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.38);
+      }
+
+      .nav-button[data-phase="advanced"] {
+        border-color: rgba(168, 85, 247, 0.65);
+        box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.38);
+      }
+
+      .nav-button:hover {
         background: rgba(15, 23, 42, 1);
         transform: translateY(-1px);
-        border-color: var(--blue-main);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.8);
       }
 
-      .hero-note {
-        margin-top: 0.7rem;
-        font-size: 0.82rem;
-        color: var(--text-muted);
+      .nav-button:focus-visible {
+        outline: 2px solid #e5e7eb;
+        outline-offset: 2px;
       }
 
-      .hero-card {
+      main {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .phase-section {
+        position: relative;
+        padding: 1.7rem 1.5rem 1.9rem;
+        border-radius: 22px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
         background: radial-gradient(
-            circle at top left,
-            rgba(37, 99, 235, 0.3),
+          circle at top left,
+          rgba(15, 23, 42, 0.92),
+          rgba(15, 23, 42, 0.96)
+        );
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+
+      .phase-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.45;
+        mix-blend-mode: screen;
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(56, 189, 248, 0.23) 0,
             transparent 55%
           ),
           radial-gradient(
-            circle at bottom,
-            rgba(139, 92, 246, 0.3),
+            circle at 90% 10%,
+            rgba(129, 140, 248, 0.22) 0,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .phase-section.phase-beginner-bg::before {
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(34, 197, 94, 0.24) 0,
             transparent 55%
           ),
-          var(--bg-card-overlay);
-        padding: 1.5rem 1.6rem 1.8rem;
-        border-radius: 1.9rem;
-        border: 1px solid var(--border-soft);
-        box-shadow: var(--shadow-soft);
-        backdrop-filter: blur(18px);
-        animation: floatCard 7s ease-in-out infinite alternate;
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(59, 130, 246, 0.18) 0,
+            transparent 50%
+          );
       }
 
-      .hero-card-label {
-        font-size: 0.78rem;
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: #c7d2fe;
-        margin-bottom: 0.5rem;
+      .phase-section.phase-intermediate-bg::before {
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(59, 130, 246, 0.3) 0,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(56, 189, 248, 0.22) 0,
+            transparent 55%
+          );
       }
 
-      .hero-card-title {
-        font-size: 1.02rem;
-        font-weight: 600;
-        margin-bottom: 0.7rem;
-        color: var(--text-strong);
+      .phase-section.phase-advanced-bg::before {
+        background: radial-gradient(
+            circle at 10% 0%,
+            rgba(168, 85, 247, 0.32) 0,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 70% 10%,
+            rgba(244, 114, 182, 0.2) 0,
+            transparent 55%
+          );
       }
 
-      .phase-pills {
+      .phase-header {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 0.35rem;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1.1rem;
       }
 
-      .phase-pill {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.7rem;
-        border-radius: 999px;
-        border: 1px solid rgba(191, 219, 254, 0.5);
-        background: rgba(15, 23, 42, 0.96);
-        color: #e0f2fe;
+      @media (min-width: 640px) {
+        .phase-header {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
       }
 
-      .hero-count {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-bottom: 0.9rem;
-      }
-
-      .hero-progress {
+      .phase-title-wrap {
         display: flex;
-        gap: 0.45rem;
-        align-items: center;
+        flex-direction: column;
+        gap: 0.25rem;
       }
 
-      .hero-progress-bar {
-        flex: 1;
-        height: 7px;
-        border-radius: 999px;
-        background: rgba(15, 23, 42, 0.95);
-        overflow: hidden;
-        position: relative;
-        border: 1px solid rgba(148, 163, 184, 0.6);
-      }
-
-      .hero-progress-bar span {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          90deg,
-          var(--blue-main),
-          var(--purple-main)
-        );
-        transform-origin: left;
-        transform: scaleX(0.7);
-      }
-
-      .hero-progress-label {
+      .phase-kicker {
         font-size: 0.78rem;
-        color: #e5e7eb;
-        min-width: 4.5rem;
-        text-align: right;
-      }
-
-      /* SECTION HEADERS */
-
-      .section-heading {
-        font-size: 0.9rem;
-        letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #a5b4fc;
-        margin-bottom: 0.55rem;
+        letter-spacing: 0.18em;
+        color: #c7d2fe;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        opacity: 0.9;
       }
 
-      .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        color: var(--text-strong);
-      }
-
-      .section-subtitle {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        margin-bottom: 1.75rem;
-        max-width: 50rem;
-      }
-
-      /* PHASE GRID */
-
-      .phases {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.6rem;
-      }
-
-      .phase-card {
+      .phase-kicker span {
+        height: 1px;
+        width: 26px;
         background: linear-gradient(
-          145deg,
-          rgba(15, 23, 42, 1),
-          rgba(15, 23, 42, 0.94)
+          to right,
+          rgba(129, 140, 248, 0.1),
+          rgba(129, 140, 248, 0.9)
         );
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--border-soft);
-        padding: 1.2rem 1.2rem 1.4rem;
-        box-shadow: var(--shadow-soft);
-        position: relative;
-        overflow: hidden;
-        transform: translateY(16px);
-        opacity: 0;
-        transition: transform 500ms ease, opacity 500ms ease,
-          box-shadow var(--transition-fast), border-color var(--transition-fast);
       }
 
-      .phase-card::before {
+      .phase-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .phase-title.phase-beginner {
+        color: var(--phase-beginner);
+      }
+
+      .phase-title.phase-intermediate {
+        color: var(--phase-intermediate);
+      }
+
+      .phase-title.phase-advanced {
+        color: var(--phase-advanced);
+      }
+
+      .phase-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 0.2rem;
+      }
+
+      .phase-tagline {
+        font-size: 0.9rem;
+        color: #cbd5f5;
+        max-width: 460px;
+      }
+
+      .phase-count {
+        padding: 0.25rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.65);
+        background: rgba(15, 23, 42, 0.92);
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      @media (min-width: 768px) {
+        .cards-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .cards-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .set-card {
+        position: relative;
+        padding: 1.1rem 1rem 1rem;
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--card-border);
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.94),
+          rgba(15, 23, 42, 0.8)
+        );
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(18px);
+        overflow: hidden;
+        transform: translateY(8px);
+        opacity: 0;
+        transition: transform 360ms cubic-bezier(0.22, 0.61, 0.36, 1),
+          opacity 360ms ease-out, box-shadow var(--transition-fast),
+          border-color var(--transition-fast), background 220ms ease,
+          transform 200ms ease;
+      }
+
+      .set-card::before {
         content: "";
         position: absolute;
         inset: 0;
         background: radial-gradient(
-          circle at top left,
-          rgba(37, 99, 235, 0.25),
-          transparent 55%
+          circle at 5% -15%,
+          rgba(129, 140, 248, 0.45) 0,
+          transparent 60%
         );
-        opacity: 0;
-        transition: opacity var(--transition-fast);
+        opacity: 0.25;
         pointer-events: none;
+        z-index: -1;
       }
 
-      .phase-card:hover {
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
-        border-color: rgba(129, 140, 248, 0.9);
-        transform: translateY(-2px);
-      }
-
-      .phase-card:hover::before {
+      .set-card.visible {
         opacity: 1;
+        transform: translateY(0);
       }
 
-      .phase-tag-row {
+      .set-card:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 22px 40px rgba(15, 23, 42, 1);
+        border-color: rgba(209, 213, 219, 0.6);
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.98),
+          rgba(15, 23, 42, 0.9)
+        );
+      }
+
+      .set-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 0.7rem;
         margin-bottom: 0.6rem;
+        gap: 0.5rem;
       }
 
-      .phase-tag {
+      .set-badge {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        background: rgba(15, 23, 42, 0.9);
+        color: #e5e7eb;
+      }
+
+      .phase-label {
         font-size: 0.78rem;
         padding: 0.25rem 0.7rem;
         border-radius: 999px;
-        border: 1px solid rgba(191, 219, 254, 0.7);
-        background: rgba(15, 23, 42, 0.96);
-        color: #bfdbfe;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-      }
-
-      .phase-level {
-        font-size: 0.78rem;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid transparent;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
         color: var(--text-muted);
-        text-align: right;
       }
 
-      .phase-name {
-        font-size: 1.1rem;
-        margin-bottom: 0.4rem;
+      .phase-label span {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+      }
+
+      .phase-label-beginner {
+        border-color: rgba(34, 197, 94, 0.7);
+      }
+
+      .phase-label-beginner span {
+        background: var(--phase-beginner);
+      }
+
+      .phase-label-intermediate {
+        border-color: rgba(59, 130, 246, 0.7);
+      }
+
+      .phase-label-intermediate span {
+        background: var(--phase-intermediate);
+      }
+
+      .phase-label-advanced {
+        border-color: rgba(168, 85, 247, 0.7);
+      }
+
+      .phase-label-advanced span {
+        background: var(--phase-advanced);
+      }
+
+      .set-title {
+        font-size: 0.98rem;
         font-weight: 600;
-        color: var(--text-strong);
-      }
-
-      .phase-desc {
-        font-size: 0.86rem;
-        color: var(--text-muted);
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.4rem;
+        color: #e5e7eb;
+        line-height: 1.3;
       }
 
       .book-list {
         list-style: none;
-        font-size: 0.82rem;
-        color: var(--text-main);
-        margin-bottom: 0.7rem;
+        margin: 0.35rem 0 0.6rem;
+        padding-left: 0;
+        font-size: 0.86rem;
       }
 
       .book-list li {
         display: flex;
         align-items: flex-start;
-        gap: 0.4rem;
-        margin-bottom: 0.27rem;
+        gap: 0.5rem;
+        margin-bottom: 0.3rem;
+        color: #e5e7eb;
       }
 
-      .book-list li span.dot {
-        width: 5px;
-        height: 5px;
+      .book-bullet {
+        width: 4px;
+        height: 4px;
         border-radius: 999px;
-        background: var(--blue-main);
-        margin-top: 0.4rem;
+        margin-top: 0.5rem;
+        background: rgba(148, 163, 184, 0.9);
         flex-shrink: 0;
       }
 
-      .phase-outcome-label {
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #a5b4fc;
-        margin-bottom: 0.18rem;
-      }
-
-      .phase-outcome-text {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-      }
-
-      /* OPTIONAL SECTION */
-
-      .optional {
-        margin-top: 2.7rem;
-        padding: 1.4rem 1.3rem 1.5rem;
-        background: linear-gradient(
-          to right,
-          rgba(30, 64, 175, 0.25),
-          rgba(76, 29, 149, 0.3)
-        );
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(129, 140, 248, 0.8);
-        box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-      }
-
-      .optional-title {
-        font-size: 1.15rem;
-        margin-bottom: 0.4rem;
+      .book-title {
         font-weight: 600;
-        color: #e0f2fe;
       }
 
-      .optional-subtitle {
-        font-size: 0.9rem;
-        color: #e5e7eb;
-        margin-bottom: 0.8rem;
+      .book-author {
+        color: var(--text-muted);
+        font-weight: 400;
       }
 
-      .optional-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.8rem 1.6rem;
-        font-size: 0.88rem;
+      .rationale {
+        font-size: 0.84rem;
+        color: var(--text-muted);
+        border-top: 1px dashed rgba(148, 163, 184, 0.4);
+        padding-top: 0.45rem;
       }
-
-      .optional-item {
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-      }
-
-      .optional-item span.badge {
-        border-color: rgba(251, 191, 36, 0.7);
-        color: var(--accent-gold);
-        background: rgba(15, 23, 42, 0.96);
-      }
-
-      /* FOOTER */
 
       footer {
-        margin-top: 3rem;
-        padding-top: 1.3rem;
-        border-top: 1px solid rgba(31, 41, 55, 0.95);
-        font-size: 0.8rem;
+        margin-top: 2.5rem;
+        padding: 1.25rem 1.25rem 1.5rem;
+        border-radius: 22px;
+        border: 1px solid rgba(148, 163, 184, 0.55);
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.96),
+          rgba(15, 23, 42, 0.9)
+        );
+        box-shadow: var(--shadow-soft);
+        backdrop-filter: blur(18px);
+        font-size: 0.88rem;
         color: var(--text-muted);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        justify-content: space-between;
-        align-items: center;
       }
 
-      footer .footer-pill {
-        padding: 0.3rem 0.8rem;
+      .footer-heading {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: #e5e7eb;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 0.4rem;
+      }
+
+      @media (min-width: 640px) {
+        .footer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      .footer-pill {
+        padding: 0.4rem 0.65rem;
         border-radius: 999px;
+        background: rgba(15, 23, 42, 0.95);
         border: 1px solid rgba(148, 163, 184, 0.7);
-        background: rgba(15, 23, 42, 0.96);
-        color: var(--text-main);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        color: #cbd5f5;
       }
 
-      /* ANIMATIONS */
-
-      @keyframes floatIn {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes floatCard {
-        0% {
-          transform: translateY(0px);
-        }
-        100% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* RESPONSIVE */
-
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .hero-card {
-          order: -1;
-        }
-        .phases {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 640px) {
-        .page {
-          padding-inline: 1rem;
-        }
-        .hero {
-          gap: 1.6rem;
-        }
-        .hero-actions {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .phases {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .phase-card {
-          padding-inline: 1.05rem;
-        }
-        .hero-title {
-          font-size: 2rem;
-        }
-        .hero-subtitle {
-          font-size: 0.95rem;
-        }
+      .footer-pill span {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--accent);
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-text">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            READING ROADMAP • BEGINNER → ADVANCED
+    <div class="page-shell">
+      <!-- HEADER -->
+      <header aria-label="Reading roadmap header">
+        <div class="header-top">
+          <div>
+            <div class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Guided Reading Roadmap
+            </div>
+            <h1>
+              60+ Book Progression for Personal Mastery &amp; Wealth Creation
+            </h1>
+            <p class="header-subtitle">
+              A unified, three-phase learning journey that moves from mindset
+              and self-awareness to advanced psychology, entrepreneurship, and
+              strategic wealth creation. Read sequentially or jump into any
+              phase based on your current focus.
+            </p>
           </div>
-          <h1 class="hero-title">
-            Design your <span>self-education system</span> with books you
-            already own.
-          </h1>
-          <p class="hero-subtitle">
-            A structured, phase-based reading roadmap that takes you from
-            mindset and discipline to money, business, psychology, and power —
-            in a clear, step-by-step sequence.
-          </p>
-
-          <div class="hero-badges">
-            <div class="badge"><strong>6</strong> Core Phases</div>
-            <div class="badge"><strong>50+ Books</strong> Organized</div>
-            <div class="badge">
-              Built for <strong>Clarity</strong> &amp; Focus
+          <div>
+            <div class="phase-summary" aria-label="Phase overview">
+              <div class="phase-chip">
+                <span class="dot-beginner" aria-hidden="true"></span>
+                Beginner · 18 books
+              </div>
+              <div class="phase-chip">
+                <span class="dot-intermediate" aria-hidden="true"></span>
+                Intermediate · 18 books
+              </div>
+              <div class="phase-chip">
+                <span class="dot-advanced" aria-hidden="true"></span>
+                Advanced · 18 books
+              </div>
             </div>
           </div>
-
-          <div class="hero-actions">
-            <button
-              class="btn-primary"
-              onclick="document.getElementById('phases').scrollIntoView({behavior:'smooth'})"
-            >
-              Start with Phase 1
-            </button>
-            <button
-              class="btn-ghost"
-              onclick="document.getElementById('optional').scrollIntoView({behavior:'smooth'})"
-            >
-              <span class="icon">📚</span>
-              View bonus reads
-            </button>
-          </div>
-          <p class="hero-note">
-            Tip: Treat each phase as a level. Finish what you start. Re-read the
-            most powerful books.
-          </p>
         </div>
 
-        <aside class="hero-card">
-          <p class="hero-card-label">Snapshot</p>
-          <h3 class="hero-card-title">Your Reading Journey</h3>
-          <div class="phase-pills">
-            <span class="phase-pill">Mindset</span>
-            <span class="phase-pill">Discipline</span>
-            <span class="phase-pill">Money</span>
-            <span class="phase-pill">Business</span>
-            <span class="phase-pill">Psychology</span>
-            <span class="phase-pill">Power</span>
-          </div>
-          <p class="hero-count">50+ books • Single connected roadmap</p>
+        <nav aria-label="Phase navigation">
+          <button class="nav-button" data-phase="beginner">
+            <span>Phase 1</span>
+            Beginner Foundations
+          </button>
+          <button class="nav-button" data-phase="intermediate">
+            <span>Phase 2</span>
+            Psychology &amp; Performance
+          </button>
+          <button class="nav-button" data-phase="advanced">
+            <span>Phase 3</span>
+            Strategy, Power &amp; Wealth
+          </button>
+        </nav>
+      </header>
 
-          <div class="hero-progress">
-            <div class="hero-progress-bar">
-              <span></span>
-            </div>
-            <div class="hero-progress-label">Level 1 → 6</div>
-          </div>
-        </aside>
-      </section>
-
-      <!-- PHASES -->
-      <section id="phases">
-        <p class="section-heading">The System</p>
-        <h2 class="section-title">Phase-based Reading Roadmap</h2>
-        <p class="section-subtitle">
-          Move from foundation to advanced topics step-by-step. Each phase
-          builds the mental, emotional, and financial skills you need for the
-          next one — so you do not get lost or overwhelmed.
-        </p>
-
-        <div class="phases">
-          <!-- Phase 1 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 1</span>
-              <span class="phase-level">Beginner • Foundation</span>
-            </div>
-            <h3 class="phase-name">Foundation – Mindset & Self-Awareness</h3>
-            <p class="phase-desc">
-              Start with practical, simple books that reset your thinking, build
-              optimism, and create emotional stability.
-            </p>
-            <ul class="book-list">
-              <li>
-                <span class="dot"></span>Who Moved My Cheese? – Spencer Johnson
-              </li>
-              <li>
-                <span class="dot"></span>Attitude Is Everything – Jeff Keller
-              </li>
-              <li>
-                <span class="dot"></span>The Winning Attitude – Jeff Keller
-              </li>
-              <li><span class="dot"></span>As a Man Thinketh – James Allen</li>
-              <li>
-                <span class="dot"></span>The Mastery of Destiny – James Allen
-              </li>
-              <li>
-                <span class="dot"></span>Ikigai – Héctor García &amp; Francesc
-                Miralles
-              </li>
-              <li><span class="dot"></span>Unposted Letter – Mahatria Ra</li>
-              <li><span class="dot"></span>Think Like a Monk – Jay Shetty</li>
-              <li>
-                <span class="dot"></span>The Four Agreements – Don Miguel Ruiz
-              </li>
-              <li>
-                <span class="dot"></span>Everything Is F*cked – Mark Manson
-              </li>
-              <li>
-                <span class="dot"></span>Who Will Cry When You Die? – Robin
-                Sharma
-              </li>
-              <li>
-                <span class="dot"></span>The Monk Who Sold His Ferrari – Robin
-                Sharma
-              </li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You build clarity, emotional stability, and a growth-oriented
-              mindset that supports every other phase.
-            </p>
-          </article>
-
-          <!-- Phase 2 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 2</span>
-              <span class="phase-level">Early Intermediate</span>
-            </div>
-            <h3 class="phase-name">Productivity & High-Performance Habits</h3>
-            <p class="phase-desc">
-              With your mindset in place, you now turn to systems: focus,
-              habits, routines, and execution.
-            </p>
-            <ul class="book-list">
-              <li><span class="dot"></span>Atomic Habits – James Clear</li>
-              <li><span class="dot"></span>Eat That Frog – Brian Tracy</li>
-              <li><span class="dot"></span>Deep Work – Cal Newport</li>
-              <li>
-                <span class="dot"></span>Discipline Is Destiny – Ryan Holiday
-              </li>
-              <li><span class="dot"></span>The Miracle Morning – Hal Elrod</li>
-              <li><span class="dot"></span>Stop Overthinking – Nick Trenton</li>
-              <li>
-                <span class="dot"></span>Focus on What Matters – Darius Foroux
-              </li>
-              <li><span class="dot"></span>Think Straight – Darius Foroux</li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You gain strong focus, consistent discipline, and a clear sense of
-              daily priorities.
-            </p>
-          </article>
-
-          <!-- Phase 3 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 3</span>
-              <span class="phase-level">Intermediate → Advanced</span>
-            </div>
-            <h3 class="phase-name">Money Mindset & Wealth Principles</h3>
-            <p class="phase-desc">
-              With discipline built, you are ready to learn how money works, how
-              wealth is created, and how to think long-term.
-            </p>
-            <ul class="book-list">
-              <li>
-                <span class="dot"></span>The Richest Man in Babylon – George S.
-                Clason
-              </li>
-              <li>
-                <span class="dot"></span>Rich Dad Poor Dad – Robert T. Kiyosaki
-              </li>
-              <li>
-                <span class="dot"></span>The Psychology of Money – Morgan Housel
-              </li>
-              <li>
-                <span class="dot"></span>The Science of Getting Rich – Wallace
-                D. Wattles
-              </li>
-              <li>
-                <span class="dot"></span>The Compound Effect – Darren Hardy
-              </li>
-              <li>
-                <span class="dot"></span>Think and Grow Rich – Napoleon Hill
-              </li>
-              <li>
-                <span class="dot"></span>The Become What You Think – Shubham
-                Kumar Singh
-              </li>
-              <li><span class="dot"></span>Money Works – Abhijeet Kolapkar</li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You build solid financial understanding, money behaviour
-              awareness, and growth-oriented wealth habits.
-            </p>
-          </article>
-
-          <!-- Phase 4 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 4</span>
-              <span class="phase-level">Advanced</span>
-            </div>
-            <h3 class="phase-name">
-              Business, Entrepreneurship & Value Creation
-            </h3>
-            <p class="phase-desc">
-              Move from personal success to building offers, products, and
-              systems that create value in the marketplace.
-            </p>
-            <ul class="book-list">
-              <li>
-                <span class="dot"></span>Steal Like an Artist – Austin Kleon
-              </li>
-              <li><span class="dot"></span>The Personal MBA – Josh Kaufman</li>
-              <li><span class="dot"></span>Zero to One – Peter Thiel</li>
-              <li>
-                <span class="dot"></span>The Almanack of Naval Ravikant – Eric
-                Jorgenson
-              </li>
-              <li><span class="dot"></span>100M Offers – Alex Hormozi</li>
-              <li><span class="dot"></span>100M Leads – Alex Hormozi</li>
-              <li><span class="dot"></span>100M Money Models – Alex Hormozi</li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You understand business models, offer creation, customer
-              acquisition, and leverage-driven growth.
-            </p>
-          </article>
-
-          <!-- Phase 5 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 5</span>
-              <span class="phase-level">Advanced</span>
-            </div>
-            <h3 class="phase-name">Psychology, Behaviour & Decision-Making</h3>
-            <p class="phase-desc">
-              Study how humans think, feel, decide, and behave — including
-              yourself, your team, and your customers.
-            </p>
-            <ul class="book-list">
-              <li><span class="dot"></span>Mindset – Dr. Carol S. Dweck</li>
-              <li>
-                <span class="dot"></span>Emotional Intelligence – Daniel Goleman
-              </li>
-              <li>
-                <span class="dot"></span>How to Win Friends and Influence People
-                – Dale Carnegie
-              </li>
-              <li>
-                <span class="dot"></span>Thinking, Fast and Slow – Daniel
-                Kahneman
-              </li>
-              <li>
-                <span class="dot"></span>Surrounded by Idiots – Thomas Erikson
-              </li>
-              <li>
-                <span class="dot"></span>Surrounded by Psychopaths – Thomas
-                Erikson
-              </li>
-              <li>
-                <span class="dot"></span>Surrounded by Narcissists – Thomas
-                Erikson
-              </li>
-              <li><span class="dot"></span>The Brain – David Eagleman</li>
-              <li>
-                <span class="dot"></span>Brainwashed by Your Gut – Manjri
-                Chandra
-              </li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You gain deep insight into human nature, emotional control, and
-              better decision-making in life and business.
-            </p>
-          </article>
-
-          <!-- Phase 6 -->
-          <article class="phase-card reveal">
-            <div class="phase-tag-row">
-              <span class="phase-tag">Phase 6</span>
-              <span class="phase-level">Expert</span>
-            </div>
-            <h3 class="phase-name">Power, Strategy & Life Philosophy</h3>
-            <p class="phase-desc">
-              Finally, zoom out to timeless strategy, power dynamics, and
-              philosophical depth.
-            </p>
-            <ul class="book-list">
-              <li>
-                <span class="dot"></span>The 48 Laws of Power – Robert Greene
-              </li>
-              <li><span class="dot"></span>The Art of War – Sun Tzu</li>
-              <li><span class="dot"></span>The Prince – Niccolò Machiavelli</li>
-              <li><span class="dot"></span>Meditations – Marcus Aurelius</li>
-              <li><span class="dot"></span>Siddhartha – Hermann Hesse</li>
-              <li><span class="dot"></span>The Alchemist – Paulo Coelho</li>
-              <li>
-                <span class="dot"></span>The Courage to Be Disliked – Ichiro
-                Kishimi &amp; Fumitake Koga
-              </li>
-            </ul>
-            <p class="phase-outcome-label">Outcome</p>
-            <p class="phase-outcome-text">
-              You gain philosophical depth, strategic thinking, and leadership
-              maturity that ties the whole roadmap together.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- OPTIONAL -->
-      <section id="optional" class="optional reveal">
-        <h3 class="optional-title">Optional: Narrative & Inspiration</h3>
-        <p class="optional-subtitle">
-          Use these as refreshers between heavy books or phases. They keep you
-          inspired and emotionally connected to the journey.
-        </p>
-        <div class="optional-list">
-          <div class="optional-item">
-            <span class="badge">Story</span>
-            <span>Animal Farm – George Orwell</span>
-          </div>
-          <div class="optional-item">
-            <span class="badge">Thriller</span>
-            <span>The Silent Patient – Alex Michaelides</span>
-          </div>
-          <div class="optional-item">
-            <span class="badge">Journey</span>
-            <span>எனது பயணம் – A.P.J. Abdul Kalam</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer>
-        <span>Reading Roadmap • Built from your own library of books.</span>
-        <span class="footer-pill"
-          >Rule: Finish the current phase before jumping to the next.</span
+      <!-- The rest of the HTML (all three phases + footer + JS) stays exactly the same as in your previous file -->
+      <!-- BEGINNER / INTERMEDIATE / ADVANCED sections and scripts go here unchanged -->
+      <main>
+        <!-- BEGINNER PHASE -->
+        <section
+          id="beginner"
+          class="phase-section phase-beginner-bg"
+          aria-labelledby="beginner-title"
         >
+          <div class="phase-header">
+            <div class="phase-title-wrap">
+              <div class="phase-kicker">
+                <span></span>
+                Phase 1 · Beginner
+              </div>
+              <h2 id="beginner-title" class="phase-title phase-beginner">
+                Beginner Phase · Mindset, Clarity & Purpose
+              </h2>
+              <p class="phase-tagline">
+                Start by stabilizing your mindset, calming mental noise, and
+                aligning with your deeper purpose before you take on heavier
+                psychological models or wealth strategies.
+              </p>
+            </div>
+            <div class="phase-meta">
+              <div class="phase-count">
+                18 books · 6 curated sets · Designed for new or restarting
+                readers
+              </div>
+            </div>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Set 1 -->
+            <article class="set-card reveal" aria-label="Beginner Set 1">
+              <div class="set-header">
+                <div class="set-badge">Set 1 · Adaptive Attitude</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">
+                Adapt to Change & Build a Winning Outlook
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Who Moved My Cheese?</span>
+                    <span class="book-author"> – Spencer Johnson</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Attitude Is Everything</span>
+                    <span class="book-author"> – Jeff Keller</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Winning Attitude</span>
+                    <span class="book-author"> – Jeff Keller</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                This set moves you from simple stories about dealing with change
+                to a strong, practical attitude framework, so you emotionally
+                accept growth before taking on deeper inner work.
+              </p>
+            </article>
+
+            <!-- Set 2 -->
+            <article class="set-card reveal" aria-label="Beginner Set 2">
+              <div class="set-header">
+                <div class="set-badge">Set 2 · Thought & Destiny</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">Understand How Thoughts Shape Your Life</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">As a Man Thinketh</span>
+                    <span class="book-author"> – James Allen</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Mastery of Destiny</span>
+                    <span class="book-author"> – James Allen</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Become What You Think</span>
+                    <span class="book-author"> – Shubham Kumar Singh</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                These books progressively deepen the idea that your thinking
+                creates your character, destiny, and results, giving you a
+                philosophical yet actionable base for later performance and
+                money work.
+              </p>
+            </article>
+
+            <!-- Set 3 -->
+            <article class="set-card reveal" aria-label="Beginner Set 3">
+              <div class="set-header">
+                <div class="set-badge">Set 3 · Mental Clarity</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">Calm Overthinking & Build Clear Focus</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Stop Overthinking</span>
+                    <span class="book-author"> – Nick Trenton</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Think Straight</span>
+                    <span class="book-author"> – Darius Foroux</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Focus on What Matters</span>
+                    <span class="book-author"> – Darius Foroux</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You move from managing anxiety and mental noise to building
+                structured thinking, then to prioritizing what truly matters,
+                creating a stable base for focused work later.
+              </p>
+            </article>
+
+            <!-- Set 4 -->
+            <article class="set-card reveal" aria-label="Beginner Set 4">
+              <div class="set-header">
+                <div class="set-badge">Set 4 · Purpose & Presence</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">Discover Purpose & Develop Inner Calm</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Ikigai</span>
+                    <span class="book-author">
+                      – Héctor García &amp; Francesc Miralles</span
+                    >
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Think Like a Monk</span>
+                    <span class="book-author"> – Jay Shetty</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Unposted Letter</span>
+                    <span class="book-author"> – Mahatria Ra</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                This trio leads you from discovering your reason for living, to
+                adopting a monk-like mindset, and finally to reflective letters
+                that anchor long-term clarity and emotional maturity.
+              </p>
+            </article>
+
+            <!-- Set 5 -->
+            <article class="set-card reveal" aria-label="Beginner Set 5">
+              <div class="set-header">
+                <div class="set-badge">Set 5 · Everyday Philosophy</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">Live by Simple Rules & Realistic Hope</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Four Agreements</span>
+                    <span class="book-author"> – Don Miguel Ruiz</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Who Will Cry When You Die?</span>
+                    <span class="book-author"> – Robin Sharma</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Everything Is F*cked</span>
+                    <span class="book-author"> – Mark Manson</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You begin with simple, spiritual agreements, move into short
+                life lessons on legacy, and then confront a raw, modern take on
+                hope and meaning to ground you in reality.
+              </p>
+            </article>
+
+            <!-- Set 6 -->
+            <article class="set-card reveal" aria-label="Beginner Set 6">
+              <div class="set-header">
+                <div class="set-badge">Set 6 · Narrative Insight</div>
+                <div class="phase-label phase-label-beginner">
+                  <span aria-hidden="true"></span>
+                  Beginner
+                </div>
+              </div>
+              <h3 class="set-title">
+                Learn Through Story-Driven Transformation
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title"
+                      >The Monk Who Sold His Ferrari</span
+                    >
+                    <span class="book-author"> – Robin Sharma</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Siddhartha</span>
+                    <span class="book-author"> – Hermann Hesse</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Alchemist</span>
+                    <span class="book-author"> – Paulo Coelho</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                These narratives use journeys and parables to show you how inner
+                quests, sacrifice, and following your “personal legend”
+                translate into real-life courage and direction.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- INTERMEDIATE PHASE -->
+        <section
+          id="intermediate"
+          class="phase-section phase-intermediate-bg"
+          aria-labelledby="intermediate-title"
+        >
+          <div class="phase-header">
+            <div class="phase-title-wrap">
+              <div class="phase-kicker">
+                <span></span>
+                Phase 2 · Intermediate
+              </div>
+              <h2
+                id="intermediate-title"
+                class="phase-title phase-intermediate"
+              >
+                Intermediate Phase · Psychology, Performance & Behavior
+              </h2>
+              <p class="phase-tagline">
+                With your foundation in place, this phase upgrades your habits,
+                deep work capacity, emotional intelligence, and understanding of
+                how people and money actually behave.
+              </p>
+            </div>
+            <div class="phase-meta">
+              <div class="phase-count">
+                18 books · 6 curated sets · Ideal once basics feel stable
+              </div>
+            </div>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Set 1 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 1">
+              <div class="set-header">
+                <div class="set-badge">Set 1 · Habit Engine</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">
+                Build Mornings, Habits & Execution Power
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Miracle Morning</span>
+                    <span class="book-author"> – Hal Elrod</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Atomic Habits</span>
+                    <span class="book-author"> – James Clear</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Eat That Frog</span>
+                    <span class="book-author"> – Brian Tracy</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                Start by locking in a powerful morning routine, then learn how
+                to build small, reliable habits and finish with tackling
+                high-value tasks first to turn clarity into daily action.
+              </p>
+            </article>
+
+            <!-- Set 2 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 2">
+              <div class="set-header">
+                <div class="set-badge">Set 2 · Deep Focus</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">
+                Deep Work, Discipline & Compounding Results
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Deep Work</span>
+                    <span class="book-author"> – Cal Newport</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Discipline Is Destiny</span>
+                    <span class="book-author"> – Ryan Holiday</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Compound Effect</span>
+                    <span class="book-author"> – Darren Hardy</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                After basic habits, you learn how to focus intensely, then
+                ground that focus in discipline and finally understand how small
+                actions compound into outsized long-term results.
+              </p>
+            </article>
+
+            <!-- Set 3 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 3">
+              <div class="set-header">
+                <div class="set-badge">Set 3 · Inner Psychology</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">Growth Mindset, Emotions & Courage</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Mindset</span>
+                    <span class="book-author"> – Dr. Carol S. Dweck</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Emotional Intelligence</span>
+                    <span class="book-author"> – Daniel Goleman</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Courage to Be Disliked</span>
+                    <span class="book-author">
+                      – Ichiro Kishimi &amp; Fumitake Koga</span
+                    >
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You go from understanding growth vs. fixed mindsets, to learning
+                how emotions drive behavior, and finally to the courage to live
+                authentically even when others disagree.
+              </p>
+            </article>
+
+            <!-- Set 4 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 4">
+              <div class="set-header">
+                <div class="set-badge">Set 4 · People Skills</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">
+                Influence, Personalities & Social Awareness
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title"
+                      >How to Win Friends and Influence People</span
+                    >
+                    <span class="book-author"> – Dale Carnegie</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Surrounded by Idiots</span>
+                    <span class="book-author"> – Thomas Erikson</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Surrounded by Psychopaths</span>
+                    <span class="book-author"> – Thomas Erikson</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                Transition from timeless interpersonal principles to decoding
+                personality types and then to recognizing manipulative people,
+                so you can collaborate effectively while protecting yourself.
+              </p>
+            </article>
+
+            <!-- Set 5 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 5">
+              <div class="set-header">
+                <div class="set-badge">Set 5 · Cognitive Awareness</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">Dark Traits, Biases & the Working Brain</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Surrounded by Narcissists</span>
+                    <span class="book-author"> – Thomas Erikson</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Thinking, Fast and Slow</span>
+                    <span class="book-author"> – Daniel Kahneman</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Brain</span>
+                    <span class="book-author"> – David Eagleman</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                This set helps you recognize narcissistic patterns, understand
+                how your brain uses fast and slow thinking, and then explore the
+                neuroscience behind perception and decision-making.
+              </p>
+            </article>
+
+            <!-- Set 6 -->
+            <article class="set-card reveal" aria-label="Intermediate Set 6">
+              <div class="set-header">
+                <div class="set-badge">Set 6 · Mind & Money Bridge</div>
+                <div class="phase-label phase-label-intermediate">
+                  <span aria-hidden="true"></span>
+                  Intermediate
+                </div>
+              </div>
+              <h3 class="set-title">
+                Gut-Brain, Money Psychology & First Wealth Principles
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Brainwashed by Your Gut</span>
+                    <span class="book-author"> – Manjri Chandra</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Psychology of Money</span>
+                    <span class="book-author"> – Morgan Housel</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Richest Man in Babylon</span>
+                    <span class="book-author"> – George S. Clason</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You first see how biology shapes behavior, then how emotions and
+                stories shape financial decisions, and finally learn simple
+                principles of saving and investing through timeless parables.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- ADVANCED PHASE -->
+        <section
+          id="advanced"
+          class="phase-section phase-advanced-bg"
+          aria-labelledby="advanced-title"
+        >
+          <div class="phase-header">
+            <div class="phase-title-wrap">
+              <div class="phase-kicker">
+                <span></span>
+                Phase 3 · Advanced
+              </div>
+              <h2 id="advanced-title" class="phase-title phase-advanced">
+                Advanced Phase · Strategy, Power, Entrepreneurship & Legacy
+              </h2>
+              <p class="phase-tagline">
+                The final phase combines high-leverage business models, power
+                dynamics, conflict strategy, and legacy thinking so you can
+                design a life of impact, wealth, and depth.
+              </p>
+            </div>
+            <div class="phase-meta">
+              <div class="phase-count">
+                18 books · 6 curated sets · Best after core habits & psychology
+              </div>
+            </div>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Set 1 -->
+            <article class="set-card reveal" aria-label="Advanced Set 1">
+              <div class="set-header">
+                <div class="set-badge">Set 1 · Wealth Philosophy</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">Philosophy & Mindset of Getting Rich</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Science of Getting Rich</span>
+                    <span class="book-author"> – Wallace D. Wattles</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Think and Grow Rich</span>
+                    <span class="book-author"> – Napoleon Hill</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title"
+                      >The Almanack of Naval Ravikant</span
+                    >
+                    <span class="book-author"> – Eric Jorgenson</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You move from early metaphysical ideas about wealth, to
+                structured success principles, and finally to modern
+                leverage-based thinking about wealth, happiness, and freedom.
+              </p>
+            </article>
+
+            <!-- Set 2 -->
+            <article class="set-card reveal" aria-label="Advanced Set 2">
+              <div class="set-header">
+                <div class="set-badge">Set 2 · Money Systems</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">
+                Cashflow, Models & Personal Finance Education
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Rich Dad Poor Dad</span>
+                    <span class="book-author"> – Robert T. Kiyosaki</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Money Works</span>
+                    <span class="book-author"> – Abhijeet Kolapkar</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">100M Money Models</span>
+                    <span class="book-author"> – Alex Hormozi</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                This set takes you from basic rich-vs-poor thinking, to
+                practical Indian personal finance tactics, and finally to
+                high-level business money models that show how serious wealth is
+                structured.
+              </p>
+            </article>
+
+            <!-- Set 3 -->
+            <article class="set-card reveal" aria-label="Advanced Set 3">
+              <div class="set-header">
+                <div class="set-badge">Set 3 · Creative Entrepreneurship</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">
+                From Creative Work to High-Impact Startups
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Steal Like an Artist</span>
+                    <span class="book-author"> – Austin Kleon</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Personal MBA</span>
+                    <span class="book-author"> – Josh Kaufman</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Zero to One</span>
+                    <span class="book-author"> – Peter Thiel</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You start by learning how to create and remix ideas, then
+                acquire core business fundamentals, and finally study how to
+                build companies that create truly new value instead of copying
+                others.
+              </p>
+            </article>
+
+            <!-- Set 4 -->
+            <article class="set-card reveal" aria-label="Advanced Set 4">
+              <div class="set-header">
+                <div class="set-badge">Set 4 · Offers & Influence</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">
+                Designing Offers, Leads & Power Dynamics
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">100M Offers</span>
+                    <span class="book-author"> – Alex Hormozi</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">100M Leads</span>
+                    <span class="book-author"> – Alex Hormozi</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The 48 Laws of Power</span>
+                    <span class="book-author"> – Robert Greene</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                After learning how value is created, you focus on crafting
+                irresistible offers and scalable lead systems, then study raw
+                power dynamics so you can navigate high-stakes business
+                situations intelligently.
+              </p>
+            </article>
+
+            <!-- Set 5 -->
+            <article class="set-card reveal" aria-label="Advanced Set 5">
+              <div class="set-header">
+                <div class="set-badge">Set 5 · Strategy & Society</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">
+                Conflict, Politics & System-Level Thinking
+              </h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Art of War</span>
+                    <span class="book-author"> – Sun Tzu</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Prince</span>
+                    <span class="book-author"> – Niccolò Machiavelli</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Animal Farm</span>
+                    <span class="book-author"> – George Orwell</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                This set broadens your view from individual success to strategy
+                in conflict, politics, and power structures, helping you
+                recognize how leaders, organizations, and societies actually
+                operate.
+              </p>
+            </article>
+
+            <!-- Set 6 -->
+            <article class="set-card reveal" aria-label="Advanced Set 6">
+              <div class="set-header">
+                <div class="set-badge">Set 6 · Leadership & Legacy</div>
+                <div class="phase-label phase-label-advanced">
+                  <span aria-hidden="true"></span>
+                  Advanced
+                </div>
+              </div>
+              <h3 class="set-title">Inner Leadership, Legacy & Human Depth</h3>
+              <ul class="book-list">
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">Meditations</span>
+                    <span class="book-author"> – Marcus Aurelius</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">எனது பயணம்</span>
+                    <span class="book-author"> – A.P.J. Abdul Kalam</span>
+                  </div>
+                </li>
+                <li>
+                  <span class="book-bullet" aria-hidden="true"></span>
+                  <div>
+                    <span class="book-title">The Silent Patient</span>
+                    <span class="book-author"> – Alex Michaelides</span>
+                  </div>
+                </li>
+              </ul>
+              <p class="rationale">
+                You finish by combining Stoic inner leadership, a real-life
+                story of vision and service, and a psychological thriller that
+                exposes the darker layers of human behavior and silence.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer aria-label="Roadmap footer">
+        <h2 class="footer-heading">How to Use This Roadmap</h2>
+        <p>
+          Move phase by phase if you want a full transformation, or jump
+          directly into the phase that matches your current reality: stabilize
+          mindset, upgrade performance and psychology, then design a strategic,
+          wealth-focused life aligned with your values.
+        </p>
+        <div class="footer-grid">
+          <div>
+            <div class="footer-pill">
+              <span aria-hidden="true"></span>
+              Begin with any Beginner set that feels most relevant to your
+              current struggles.
+            </div>
+          </div>
+          <div>
+            <div class="footer-pill">
+              <span aria-hidden="true"></span>
+              Treat each set as a “mini-sprint” of 3 books with one clear
+              developmental goal.
+            </div>
+          </div>
+          <div>
+            <div class="footer-pill">
+              <span aria-hidden="true"></span>
+              As your clarity and execution improve, mix Intermediate and
+              Advanced sets based on your career and business focus.
+            </div>
+          </div>
+        </div>
       </footer>
-    </main>
+
+      <!-- For brevity, keep your previous body content from <main> ... </footer> and the same <script> blocks. -->
+    </div>
 
     <script>
-      // Scroll reveal animation for phase cards and optional section
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
+      // Smooth scroll for phase navigation
+      (function () {
+        const buttons = document.querySelectorAll(".nav-button");
+        const phaseMap = {
+          beginner: document.getElementById("beginner"),
+          intermediate: document.getElementById("intermediate"),
+          advanced: document.getElementById("advanced"),
+        };
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const phase = btn.getAttribute("data-phase");
+            const section = phaseMap[phase];
+            if (section) {
+              section.scrollIntoView({ behavior: "smooth", block: "start" });
             }
           });
-        },
-        { threshold: 0.12 }
-      );
-
-      document
-        .querySelectorAll(".phase-card.reveal, .optional.reveal")
-        .forEach((el) => {
-          observer.observe(el);
         });
+      })();
+
+      // Scroll-based reveal animations using IntersectionObserver
+      (function () {
+        const cards = document.querySelectorAll(".set-card.reveal");
+        if (!("IntersectionObserver" in window) || cards.length === 0) {
+          cards.forEach((card) => card.classList.add("visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+      })();
     </script>
   </body>
 </html>
